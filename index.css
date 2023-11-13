@@ -76,7 +76,7 @@ ul{
  h6{
     color: white;
  }
- button{
+ #wi{
     border: 2px solid red;
     background-color:red ;
     position: relative;
@@ -132,4 +132,6 @@ ul{
    padding-left: 20px;
    color: white;
  }
- 
+ button:hover{
+           color: red;
+ }

@@ -23,3 +23,44 @@
     <script src="favorite.js"></script>
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Site</title>
+</head>
+<body>
+
+  <h1>Movie Title</h1>
+  <button id="favoriteButton" onclick="toggleFavorite()">Add to Favorites</button>
+
+  <script>
+    // Simulating a database or storage for favorites
+    let favorites = [];
+
+    // Function to toggle movie as favorite
+    function toggleFavorite() {
+      const button = document.getElementById('favoriteButton');
+
+      // Check if movie is already a favorite
+      const isFavorite = favorites.includes('Movie Title');
+
+      // Toggle favorite status
+      if (isFavorite) {
+        favorites = favorites.filter(title => title !== 'Movie Title');
+        button.innerText = 'Add to Favorites';
+      } else {
+        favorites.push('Movie Title');
+        button.innerText = 'Remove from Favorites';
+      }
+
+      // You can store favorites in localStorage, a server, or a database for persistence
+      // For simplicity, this example doesn't handle page refresh persistence.
+      console.log('Favorites:', favorites);
+    }
+  </script>
+
+</body>
+</html> -->

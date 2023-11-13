@@ -83,6 +83,7 @@ fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${Key}`)
     movies.forEach(movie => {
     const movieCard = document.createElement('div');
     movieCard.classList.add('movieCards');
+    
 
     const Poster = document.createElement('img');
     Poster.classList.add('Poster');
@@ -98,8 +99,12 @@ fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${Key}`)
     movieoverview.classList.add('movieoverview');
     movieoverview.innerText = movie.overview.slice(0,38) ;
 
-    //  document.createElement('div').innerHTML = "<i>class="fa fa-star"></i>";
-    // icon.classList.add('fa fa-like');
+
+    // const icon = document.createElement("button")
+    const icon = document.createElement("button");
+    icon.classList.add("fa","fa-heart");
+    // movieCardsElement.insertBefore(iconElement, moviecardsElement.firstChild);
+    
 
     
     const rating = document.createElement('p');
@@ -121,6 +126,7 @@ fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${Key}`)
     movieCard.appendChild(Poster);
     movieCard.appendChild(movieTitle);
     movieCard.appendChild(rating);
+    movieCard.appendChild(icon);
     movieCard.appendChild(movieoverview);
 
     movieContainer.appendChild(movieCard);
@@ -195,22 +201,26 @@ form.addEventListener('submit', async (event) => {
 });
 // end of search movie page
 
+// favoriate
+let favorites = [];
 
-// const movieinput = document.getElementById('put')
-// const movieresult = document.getElementById("result")
-// function myfunction(){
-//   const Key = '801c681f9fd380835fcfc66c8ad2d35d';
-//   fetch(`https://api.themoviedb.org/3/search?q=${movieinput.value}apikey=${Key}`)
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log(data)
-// });
+    // Function to toggle movie as favorite
+    function toggleFavorite() {
+      const icon = document.getElementById('favoriteicon');
 
-// }
+      // Check if movie is already a favorite
+      const isFavorite = favorites.includes('Movie cards');
 
+      // Toggle favorite status
+      if (isFavorite) {
+        favorites = favorites.filter(title => title !== 'Movie cards');
+        icon.innerText = 'Add to Favorites';
+      } else {
+        favorites.push('Movie cards');
+        icon.innerText = 'Remove from Favorites';
+      }
 
-
-
-
-
- 
+      // You can store favorites in localStorage, a server, or a database for persistence
+      // For simplicity, this example doesn't handle page refresh persistence.
+      console.log('Favorites:', favorites);
+    }
